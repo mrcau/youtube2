@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './App.css';
+import SerchHeader from './components/SerchHeader/SerchHeader';
 import VideoList from './components/Video_list/VideoList';
 
 function App() {
@@ -17,8 +18,10 @@ function App() {
       .then(result => setVideos(result.items)) // 콘솔에서 확인한 결과물을 state변수에 담기
       .catch(error => console.log('error', error));  // 에러가 발생하면 'error'를 콘설에 출력
   }, []);
+  
   return (
     <div className="App">
+      <SerchHeader / >
       <VideoList Videos={Videos} />
     </div>
   );

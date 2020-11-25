@@ -1,0 +1,25 @@
+.header{
+  display: flex;
+  height: 4rem;
+  padding: 0.5rem 1rem;
+  background-color: black;  
+}
+.logo{
+  display: flex;
+  align-items: center;
+  background-color: white;
+  margin-right: 1em;
+}
+.input{
+  width: 100%;
+  outline: none;
+  font-size: 1.2rem;
+}
+.img{
+  height: 100%;
+}
+.submit{
+  width:8rem;
+  font-size: 1.3rem;
+  font-weight: 900;
+}
