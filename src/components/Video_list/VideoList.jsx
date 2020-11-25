@@ -5,7 +5,7 @@ function VideoList(pr) {
   const Videos = pr.Videos;
   return (
     <div className={style.videos}>
-      {Videos.map(e=> <VideoItem video={e}/> )}
+      {Videos.map(e=> <VideoItem key={e.id} video={e}/> )}
     </div>
   )
 }
