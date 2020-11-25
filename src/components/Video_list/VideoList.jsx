@@ -1,14 +1,11 @@
 import React from 'react'
 import VideoItem from '../Video_item/VideoItem'
-
+import style from './VideoList.module.css'
 function VideoList(pr) {
   const Videos = pr.Videos;
   return (
-    <div>
-         {/* {Videos.map(video=><VideoItem video={video}/>        )} */}
-      {Videos.map((video) => { return (
-        <VideoItem key={video.id} video={video}/>)
-      })}
+    <div className={style.videos}>
+      {Videos.map(e=> <VideoItem video={e}/> )}
     </div>
   )
 }
