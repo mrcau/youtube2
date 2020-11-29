@@ -17,10 +17,6 @@ const SerchHeader = ({onSearch}) => {
     inputRef.current.focus();
   }
 
-  const onClick = () => {
-    handleSerch();
-  }
-
   const onKeypress = (e) => {
     e.key==='Enter'&&handleSerch();
   }
@@ -32,7 +28,7 @@ const SerchHeader = ({onSearch}) => {
       <h1 className={style.title}>header</h1>  
     </div>
     <input className={style.input} type="serch" placeholder="Serch..." onKeyPress={onKeypress} ref={inputRef} />
-    <button type="submit" className={style.submit} onClick={onClick}> 검색</button>
+    <button type="submit" className={style.submit} onClick={handleSerch}> 검색</button>
   </header>
   )};
 
