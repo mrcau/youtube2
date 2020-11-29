@@ -5,7 +5,7 @@ import VideoList from './components/Video_list/VideoList';
 
 function App() {
   const [Videos, setVideos] = useState([]);
-
+  const apikey = process.env.REACT_APP_YOUTUBE_API_KEY;
   // Q쿼리가 들어오면 API값을 받아오는 함수
   const onSearch = (query) => {
     console.log(query);
@@ -14,7 +14,7 @@ function App() {
       redirect: 'follow'
     };
     //백틱키를 이용해서 fetch URl의 q 쿼리 값을 위에 받아온 'query'로 변경후 뒤에 &type=video 추가
-    fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${query}&type=video&key=AIzaSyB1-Brt9Vl_ZFtRozRbMhBp6S0E-RLmTho`, requestOptions)
+    fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${query}&type=video&key=${apikey}`, requestOptions)
       .then(response => response.json()) 
       .then(result => 
         result.items.map(e =>({...e,id:e.id.videoId})))
@@ -26,16 +26,18 @@ function App() {
 
   // 앱이 마운트 되면 자동으로 API 값을 받아오는 기능
   useEffect(() => {
-    //fetch URL 뒤에 붙여줄 옵션을 변수로 정의 requestOptions
-    const requestOptions = {
+
+
+    var requestOptions = {
       method: 'GET',
       redirect: 'follow'
     };
-
-    fetch("https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&key=AIzaSyB1-Brt9Vl_ZFtRozRbMhBp6S0E-RLmTho", requestOptions)
-      .then(response => response.json()) // fecth가 정상적으로 받아지면 응답을 text로 반환.
+        //fetch URL 뒤에 붙여줄 옵션을 변수로 정의 requestOptions
+    fetch("https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=bts&key=AIzaSyCsHxKHZsCWu-AYT1svwbmPK2ntDRu1bFg", requestOptions)
+      .then(response => response.json())// fecth가 정상적으로 받아지면 응답을 text로 반환.
       .then(result => setVideos(result.items)) // 콘솔에서 확인한 결과물을 state변수에 담기
-      .catch(error => console.log('error', error));  // 에러가 발생하면 'error'를 콘설에 출력
+      .catch(error => console.log('error', error));// 에러가 발생하면 'error'를 콘설에 출력
+
   }, []);
   
   return (
