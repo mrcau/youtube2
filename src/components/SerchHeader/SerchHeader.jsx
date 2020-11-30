@@ -5,8 +5,6 @@ const SerchHeader = ({onSearch}) => {
   
   const inputRef = useRef();
 
-
-
   const handleSerch = () => {
     const value = inputRef.current.value;
     if(value===''){

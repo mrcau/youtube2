@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import './App.css';
 import SerchHeader from './components/SerchHeader/SerchHeader';
+import Detail from './components/video_detail/Detail';
 import VideoList from './components/Video_list/VideoList';
 
 function App({Youtube}) {
   const [Videos, setVideos] = useState([]);
-  const apikey = process.env.REACT_APP_YOUTUBE_API_KEY;
-  // 앱이 마운트 되면 자동으로 API 값을 받아오는 기능
+  const [selectVideo, setSelectVideo] = useState(null);
+
   useEffect(() => {
     Youtube.search().then(items => setVideos(items));
   }, []);
@@ -20,6 +21,9 @@ function App({Youtube}) {
     <div className="App">
       <SerchHeader onSearch={onSearch} / >
         {/* 위에 정의한 search 함수를 프롭스로 SerchHeader에 보내기(변수 뿐만아니라 함수도 보낼수있다) */}
+
+      {selectVideo && <Detail video={selectVideo}/>}
+
       <VideoList Videos={Videos} /> 
       {/* Videos 스테이트 변수 VideoList 컴포넌트에 보내기 */}
     </div>
