@@ -1,15 +1,17 @@
 import React from 'react'
 import style from './VideoItem.module.css';
 
-const VideoItem = ({video:{snippet}}) => 
+const VideoItem = ({video, selvideo}) => 
    (
-    <div className={style.container}>
+    <div className={style.container} onClick={ () => {
+      selvideo(video)
+    }}>
        
       <div className={style.video}>
-        <img className={style.thumbnail} src={snippet.thumbnails.medium.url}/>
+        <img className={style.thumbnail} src={video.snippet.thumbnails.medium.url}/>
         <div className={style.metadata}>
-          <h4 className={style.title} >{snippet.title}</h4>
-          <p className={style.channel} >{snippet.channelTitle}</p>
+          <h4 className={style.title} >{video.snippet.title}</h4>
+          <p className={style.channel} >{video.snippet.channelTitle}</p>
         </div>
       </div>
     
