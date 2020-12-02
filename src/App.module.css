@@ -7,3 +7,17 @@
 .content{
   display: flex;
 }
+
+.detail{
+  flex:1 1 70% ;
+}
+
+.videoList{
+  flex:1 1 30%;
+}
+
+@media screen and (max-width:48rem){
+  .content{
+    flex-flow: column;
+  }
+}

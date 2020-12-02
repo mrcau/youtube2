@@ -1,7 +1,7 @@
-import React, { useRef } from 'react';
+import React, { memo, useRef } from 'react';
 import style from './SerchHeader.module.css'
 
-const SerchHeader = ({onSearch}) => {
+const SerchHeader = memo( ({onSearch}) => {
   
   const inputRef = useRef();
 
@@ -28,6 +28,7 @@ const SerchHeader = ({onSearch}) => {
     <input className={style.input} type="serch" placeholder="Serch..." onKeyPress={onKeypress} ref={inputRef} />
     <button type="submit" className={style.submit} onClick={handleSerch}> 검색</button>
   </header>
-  )};
+  )}
+  )
 
 export default SerchHeader;

@@ -2,6 +2,12 @@
   padding: 0.2em;
   width: 50%;
 }
+.container.list{
+  width: 100%;
+}
+.container.grid{
+  width:50%;
+}
 .video{
   display: flex;
   align-items: center;
@@ -30,4 +36,10 @@ p{
 }
 .channel {
   font-size: 0.9rem;
+}
+
+@media screen and (max-width:768px){
+  .container{
+    width: 100%;
+  }
 }
